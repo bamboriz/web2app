@@ -1,0 +1,7 @@
+{
+  "name": "web2app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
