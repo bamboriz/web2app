@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +9,33 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 })
 export class HomePage {
 
-  constructor(private inAppBrowser : InAppBrowser) {}
+  constructor(private inAppBrowser : InAppBrowser, private platform : Platform) {}
+
+  subscription: any
+
+  ngOnInit(){
+   
+  }
+
+  launchSite(){
+    this.inAppBrowser.create(`https://camertechtrends.com`, `_blank`);
+  }
+
+  exitApp(){
+    navigator['app'].exitApp();
+  }
 
   ionViewDidEnter(){
-    this.inAppBrowser.create(`https://camertechtrends.com`, `_blank`, {
-      hideurlbar : 'yes',
-      toolbarcolor: '#24292e'
-    });
+  
+    this.subscription = this.platform.backButton.subscribe(async () => {
+        navigator['app'].exitApp();
+  });
   }
+  
+  ionViewWillLeave(){
+    this.subscription.unsubscribe();
+  }
+
+
 
 }

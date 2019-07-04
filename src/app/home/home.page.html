@@ -1,14 +1,16 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-grid>
+	<ion-row justify-content-center>
+		<ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+			<div text-center>
+        <h4>Web2App</h4>
+        <p>A Simple App for my Blog</p>
+			</div>
+			
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
-</ion-content>
+			<div padding>
+				<ion-button size="large" (click)='launchSite()' expand="block">Launch</ion-button>
+				<ion-button size="large" (click)='exitApp()' color="danger" expand="block">Exit</ion-button>
+			</div>
+		</ion-col>
+	</ion-row>
+</ion-grid>
